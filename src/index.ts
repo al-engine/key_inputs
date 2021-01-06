@@ -7,12 +7,6 @@ export interface KeyInputsResult {
 export default class KeyInputs {
   keysPress = Array<string>();
   keysHold = Array<string>();
-  isPressed = (key: string) => {
-    return this.keysPress.indexOf(key) !== -1;
-  };
-  isHolded = (key: string) => {
-    return this.keysHold.indexOf(key) !== -1;
-  };
   onKeydown = (event: KeyboardEvent) => {
     const index = this.keysHold.indexOf(event.key);
     if (index === -1) {
@@ -35,11 +29,13 @@ export default class KeyInputs {
     document.removeEventListener('keyup', this.onKeyup, false);
   }
   collect() : KeyInputsResult {
+    const keysPress = [...this.keysPress];
+    const keysHold = [...this.keysHold];
     const input = {
-      keysPress: [...this.keysPress],
-      keysHold: [...this.keysHold],
-      isPressed: this.isPressed,
-      isHolded: this.isHolded,
+      keysPress: keysPress,
+      keysHold: keysHold,
+      isPressed: (key: string) => keysPress.indexOf(key) !== -1,
+      isHolded: (key: string) => keysHold.indexOf(key) !== -1,
     };
     this.keysPress = [];
     return input;
