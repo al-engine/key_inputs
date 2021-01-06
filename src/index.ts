@@ -5,6 +5,12 @@ export interface KeyInputsResult {
 export default class KeyInputs {
   keysPress = Array<string>();
   keysHold = Array<string>();
+  isKeysPressed = (key: string) => {
+    return this.keysPress.indexOf(key) !== -1;
+  };
+  isKeysHolded = (key: string) => {
+    return this.keysHold.indexOf(key) !== -1;
+  };
   onKeydown = (event: KeyboardEvent) => {
     const index = this.keysHold.indexOf(event.key);
     if (index === -1) {
