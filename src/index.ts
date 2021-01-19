@@ -16,7 +16,7 @@ export default class KeyInputs {
   };
   onKeyup = (event: KeyboardEvent) => {
     const index = this.keysHold.indexOf(event.key);
-    if (index != -1) {
+    if (index !== -1) {
       this.keysHold.splice(index, 1);
     }
   };
