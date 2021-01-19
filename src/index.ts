@@ -24,11 +24,11 @@ export default class KeyInputs {
     document.addEventListener('keydown', this.onKeydown, false);
     document.addEventListener('keyup', this.onKeyup, false);
   }
-  clean () {
+  clean() {
     document.removeEventListener('keydown', this.onKeydown, false);
     document.removeEventListener('keyup', this.onKeyup, false);
   }
-  collect() : KeyInputsResult {
+  collect(): KeyInputsResult {
     const keysPress = [...this.keysPress];
     const keysHold = [...this.keysHold];
     const input = {
