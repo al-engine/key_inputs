@@ -30,7 +30,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "key_inputs",
+  "name": "@al-engine/key_inputs",
   "author": "zhesha",
   "description": "Module for handle key inputs in Al engine. Minimalistic game engine, for pixel perfect games",
   "module": "dist/key_inputs.esm.js",
