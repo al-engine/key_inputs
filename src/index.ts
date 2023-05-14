@@ -8,14 +8,14 @@ export default class KeyInputs {
   keysPress = Array<string>();
   keysHold = Array<string>();
   onKeydown = (event: KeyboardEvent) => {
-    const index = this.keysHold.indexOf(event.key);
+    const index = this.keysHold.indexOf(event.code);
     if (index === -1) {
-      this.keysPress.push(event.key);
-      this.keysHold.push(event.key);
+      this.keysPress.push(event.code);
+      this.keysHold.push(event.code);
     }
   };
   onKeyup = (event: KeyboardEvent) => {
-    const index = this.keysHold.indexOf(event.key);
+    const index = this.keysHold.indexOf(event.code);
     if (index !== -1) {
       this.keysHold.splice(index, 1);
     }
